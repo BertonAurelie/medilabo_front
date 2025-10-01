@@ -1,0 +1,27 @@
+<div class="search-bar">
+    <input placeholder="recherche patient"/>
+    <i id="search-bar_icon" class="fa-solid fa-magnifying-glass"></i>
+</div>
+
+<table>
+    <thead>
+    <tr>
+      <th class="index" scope="col">Nom</th>
+      <th class="index" scope="col">Prénom</th>
+      <th class="index" scope="col">Age</th>
+      <th class="index" scope="col">Genre</th>
+      <th class="index" scope="col">Adresse</th>
+      <th class="index" scope="col">Téléphone</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor = "let x of patients">
+        <th scope="row">{{x.lastName}}</th>
+        <th scope="row">{{x.firstName}}</th>
+        <th scope="row">{{x.birthday}}</th>
+        <th scope="row">{{x.gender}}</th>
+        <th scope="row">{{x.adress}}</th>
+        <th scope="row">{{x.phoneNumber}}</th>
+    </tr>
+  </tbody>
+</table>
