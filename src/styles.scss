@@ -1,14 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    padding:0;
-    margin:0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 header {
-    height:12vh;
+  position: sticky;
+  height: 12vh;
+  z-index: 2;
 }
 
 main {
-    height:87vh;
-    margin-top: 50px;
+  position: relative; 
+  height: 88vh;
 }

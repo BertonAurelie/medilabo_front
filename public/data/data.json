@@ -3,7 +3,7 @@
     "id": 1,  
     "lastName": "TestNone",  
     "firstName": "Test",  
-    "birthday":"1966-12-31",
+    "birthday":"32",
     "gender": "F",
     "adress":"1 Brookside St",
     "phoneNumber":"100-222-3333"  
@@ -12,7 +12,7 @@
     "id": 2,  
     "lastName": "TestBorderline",  
     "firstName": "Test",  
-    "birthday":"1945-06-24",
+    "birthday":"55",
     "gender": "M",
     "adress":"2 High St",
     "phoneNumber":"200-333-4444"  
@@ -21,7 +21,7 @@
     "id": 3,  
     "lastName": "TestInDanger",  
     "firstName": "Test",  
-    "birthday":"2004-06-18",
+    "birthday":"26",
     "gender": "M",
     "adress":"3 Club Road",
     "phoneNumber":"300-444-5555"  
@@ -30,7 +30,7 @@
     "id": 4,  
     "lastName": "TestEarlyOnset",  
     "firstName": "Test",  
-    "birthday":"2002-06-28",
+    "birthday":"75",
     "gender": "F",
     "adress":"4 Valley Dr",
     "phoneNumber":"400-555-6666"  

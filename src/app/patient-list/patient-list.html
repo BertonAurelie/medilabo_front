@@ -1,8 +1,3 @@
-<div class="search-bar">
-    <input placeholder="recherche patient"/>
-    <i id="search-bar_icon" class="fa-solid fa-magnifying-glass"></i>
-</div>
-
 <table>
     <thead>
     <tr>
@@ -12,16 +7,24 @@
       <th class="index" scope="col">Genre</th>
       <th class="index" scope="col">Adresse</th>
       <th class="index" scope="col">Téléphone</th>
+      <th class="index" scope="col"></th>
+      <th class="index" scope="col"></th>
     </tr>
   </thead>
   <tbody >
     <tr *ngFor = "let x of patients">
-        <th scope="row">{{x.lastName}}</th>
-        <th scope="row">{{x.firstName}}</th>
-        <th scope="row">{{x.birthday}}</th>
-        <th scope="row">{{x.gender}}</th>
-        <th scope="row">{{x.adress}}</th>
-        <th scope="row">{{x.phoneNumber}}</th>
+        <td id="lastName">{{x.lastName}}</td>
+        <td id="firstName">{{x.firstName}}</td>
+        <td id = "birthday">{{x.birthday}}</td>
+        <td id = "gender">{{x.gender}}</td>
+        <td id ="adress">{{x.adress}}</td>
+        <td id = "phoneNumber">{{x.phoneNumber}}</td>
+        <td><i class="fa-regular fa-pen-to-square"></i></td>
+        <td><i class="fa-solid fa-xmark"></i></td>
     </tr>
   </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="8" class="table-footer"></td>
+  </tr></tfoot>
 </table>

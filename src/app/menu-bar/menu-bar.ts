@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-menu-bar',
   imports: [RouterLink],
-  templateUrl: './header.html',
-  styleUrl: './header.scss'
+  templateUrl: './menu-bar.html',
+  styleUrl: './menu-bar.scss'
 })
-export class Header {
+export class MenuBar {
+
 }

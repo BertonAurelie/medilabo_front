@@ -17,7 +17,7 @@ export class PatientList implements OnInit{
   ngOnInit(): void{
     this.dataService.getPatientList().subscribe((data: Patient[]) => {
       this.patients = data;
-      console.log(this.patients)
+      //console.log(this.patients)
     })
   }
 }
