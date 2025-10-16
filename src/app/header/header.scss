@@ -4,22 +4,10 @@ p {
 
 header {
   width: 100%;
-  box-shadow: 0px 8px 5px 1px #c5c5c5;
+  height:80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  #logo {
-    width: 150px;
-    height: 70px;
-    padding-left: 15px;
-
-    img {
-      width: 150px;
-      height: 70px;
-      object-fit: contain;
-    }
-  }
 
   .search-bar {
     display: flex;
@@ -27,7 +15,7 @@ header {
     height: 45px;
     justify-content: left;
     gap: 10px;
-    margin-left: 40px;
+    margin-left: 5px;
 
     .search-bar__wrapper {
       display: flex;
@@ -95,17 +83,19 @@ header {
 
   #sign {
     display: flex;
-    width: 220px;
+    width: 320px;
     gap: 7px;
+    padding-right: 70px;
 
     a {
       display: flex;
       justify-content: center;
       align-self: center;
-      width: 90px;
+      width: 100%;
       height: 30px;
       color: black;
       text-decoration: none;
+      font-size: 17px;
 
       transition: all 0.4s ease-out;
     }

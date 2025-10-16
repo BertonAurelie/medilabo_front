@@ -1,12 +1,21 @@
 $red2: #f6eaec;
-
-$red: #c43434;
+//#e26565
+$red: #d9d9d9;
 $rougegradient: #fcd7cf;
-$gris: rgba(210, 208, 208, 0.363);
+$grey: rgba(210, 208, 208, 0.363);
 
+h1 {
+  padding-left: 5%;
+}
+
+#table_container {
+  display:flex;
+  justify-content: center;
+  
+}
 table {
   display: table;
-  width: 1000px;
+  width: 90%;
   min-height: 400px;
   background: transparent;
   text-align: center;
@@ -18,21 +27,26 @@ table {
   thead {
     tr {
       .index {
-        background: $red;
-        color: #fff;
+        border-top:1px solid rgba(160, 158, 158, 0.363);
+        border-bottom:1px solid rgba(160, 158, 158, 0.363);
+        background: white;
+        color: #000000;
         height: 50px;
         text-align: center;
+        
       }
 
-      
       th:first-child {
-        border-top-left-radius: 25px;
+        border-radius: 25px 0 0 25px;
+        border:1px solid rgba(160, 158, 158, 0.363);
+        border-right: transparent;
       }
 
       th:last-child {
-        border-top-right-radius: 25px;
-        //border-radius:0 25px 25px 0;
+        border-radius: 0 25px 25px 0;
         margin-right: 10px;
+        border:1px solid rgba(160, 158, 158, 0.363);
+        border-left: transparent;
       }
     }
 
@@ -41,37 +55,74 @@ table {
     :nth-child(8) {
       width: 25px;
     }
+
+    :nth-child(7),
+    :nth-child(8){
+      padding-right: 25px;
+
+    }
+
+  }
+
+  tr.thead-gap td {
+    padding: 0;
+    height: 10px;
+    border: 0;
+    //background: transparent;
   }
 
   tbody {
-    border-collapse: separate;
-    border-spacing: 5px;
+    
     background-color: white;
     border-radius: 25px;
     font-size: 19px;
 
+    tr:first-child {
+
+      #lastName {
+      border-radius: 25px 0 0 0;
+
+      }
+
+      td:last-child {
+        border-radius: 0 25px 0 0;
+      }
+      
+
+    }
+
     tr {
       transition: background-color 160ms ease;
       td {
-        border-bottom: 1px solid rgb(204, 59, 59);
+        border-bottom: 1px solid rgba(160, 158, 158, 0.363);
+      }
+
+
+      
+
+      td :last-child {
+        border-radius:25px;
+        border: transparent;
       }
 
       &:hover {
-        background-color: $gris;
+        background-color: $grey;
         box-shadow: inset 4px 0 0 $red, inset -4px 0 0 $red;
+
+        &:first-child {
+          border-radius: 25px 25px 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 25px 25px;
+        }
       }
 
       &:focus :target-within {
-        background-color: $gris;
+        background-color: $grey;
       }
     }
   }
 
-  tfoot td.table-footer {
-    height: 20px;
-    background: $red;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-shadow: 4px 5px 5px 0px rgba(197, 197, 197, 0.7);
-  }
+  
 }
