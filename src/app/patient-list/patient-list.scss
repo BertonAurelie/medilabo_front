@@ -2,7 +2,10 @@ $red2: #f6eaec;
 //#e26565
 $red: #d9d9d9;
 $rougegradient: #fcd7cf;
-$grey: rgba(210, 208, 208, 0.363);
+$greybackground: rgba(210, 208, 208, 0.363);
+
+$red: #d9d9d9;
+$greyborder : rgba(160, 158, 158, 0.363);
 
 h1 {
   padding-left: 5%;
@@ -106,7 +109,7 @@ table {
       }
 
       &:hover {
-        background-color: $grey;
+        background-color: $greybackground;
         box-shadow: inset 4px 0 0 $red, inset -4px 0 0 $red;
 
         &:first-child {
@@ -119,7 +122,7 @@ table {
       }
 
       &:focus :target-within {
-        background-color: $grey;
+        background-color: $greybackground;
       }
     }
   }

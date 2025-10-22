@@ -19,14 +19,22 @@
       <td colspan="8"></td>
     </tr>
     <tbody >
-      <tr *ngFor = "let x of patients">
+      <tr  *ngFor = "let x of patients" [routerLink]="['/patient', x.id]">
           <td id="lastName">{{x.lastName}}</td>
           <td id="firstName">{{x.firstName}}</td>
           <td id = "birthday">{{x.birthday}}</td>
           <td id = "gender">{{x.gender}}</td>
           <td id ="adress">{{x.adress}}</td>
           <td id = "phoneNumber">{{x.phoneNumber}}</td>
-          <td><i class="fa-regular fa-pen-to-square"></i></td>
+           <td class="actions">
+            <button type="button"
+                    class="icon-btn"
+                    [routerLink]="['/patient', x.id]"
+                    aria-label="Éditer"
+                    (click)="$event.stopPropagation()">
+              <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+            </button>
+          </td>
           <td><i class="fa-solid fa-xmark"></i></td>
       </tr>
     </tbody>

@@ -22,3 +22,19 @@ app-patient-list {
   flex-direction: column;
   gap:10px;
 }
+
+app-patient-page {
+    width:98%;
+    height:95%;
+    display:flex;
+    align-self: center;
+}
+
+app-sign-in {
+  width:100%;
+  height:100%;
+  display:flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
