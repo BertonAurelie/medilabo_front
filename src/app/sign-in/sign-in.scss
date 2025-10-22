@@ -1,71 +1,111 @@
 $greybackground: rgba(210, 208, 208, 0.363);
 $red: rgb(196, 52, 52);
 $greyborder : rgba(160, 158, 158, 0.363);
+$border: 5px solid $greybackground;
 
 .sign-in_container{
     display:flex;
+    max-height: 400px; 
     width:40%;
-    height:40%;
-    justify-content: center;
+    height:50%;
 
     form {
         width:100%;
         height: 100%;
         display:flex;
         flex-direction: column;
-        justify-content: center;
-        background-color: $greybackground;
-
         border-radius: 25px;
         font-size: 23px;
+        border: 2px solid $greyborder;
+        background-color: white;
+        box-shadow: -1px 3px 13px 5px $greyborder;
+        justify-content: space-evenly;
 
-        label {
-            padding-left: 20px;
-            margin-top: 15px;
-
-        }
-
-        #email_hr {
-            width:12%;
-            margin-left: 20px;
-            border-radius: 7px 25px 0 0;
-            border:5px solid #fffafa;
-
-
-        }
-
-        #password_hr{
-            width:25%;
-            margin-left: 20px;
-            border:5px solid #fffafa;
-            border-radius: 7px 25px 0 0;
-
-        }
-
-        input {
-            margin-left: 20px;
+        .input_container{
             display:flex;
-            //align-self: center;
-            width:60%;
-            height:19%;
-            border-radius:  0 7px 7px 7px;
-            border:none;
-            background-color: #fffafa
+            flex-direction: column;
+
+            label {
+                padding-left: 20px;
+                margin-top: 15px;
+            }
+
+            #email_hr[aria-hidden="true"]{
+                width:12%;
+                margin-left: 20px;
+                border-radius: 7px 25px 0 0;
+                border-top: $border;
+                border-right: $border;
+                border-left: $border;
+            }
+
+            #password_hr[aria-hidden="true"]{
+                width:25%;
+                margin-left: 20px;
+                border-radius: 7px 25px 0 0;
+                border-top: $border;
+                border-right: $border;
+                border-left: $border;
+            }
+
+            input {
+                margin-left: 20px;
+                display:flex;
+                width:60%;
+                height:50px;
+                border-radius:  0 7px 7px 7px;
+                background-color: #fffafa;
+                outline: none;
+                border: 1px solid $greyborder;    
+                font-size: 20px;
+                font-weight: 700;
+            }
         }
+        
+              
+        .button_container {
+            display:flex;
+            width:100%;
+            height:25%;
+            align-items: center;
+            gap : 30px;
+            justify-content: center;
 
-        button {
-            margin-top: 15px;
-            width:50%;
-            height:15%;
-            border-radius: 10px;
-            background-color: $red;
-            color:white;
-            border:none;
-            align-self: flex-end;
-            margin-right: 30px;
-            margin-bottom: 15px;
+            button{
+                border-radius: 10px;
+                width:30%;
+                height: 50px;
+                font-size: 18px;    
+            }
 
+            #sign_up{
+                background-color: white;
+                border: 2px solid $greyborder;
+                box-shadow: -1px 3px 3px 1px $greyborder;
 
+                &:hover{
+                    background-color: rgb(247, 247, 247);
+                    font-weight: 600;
+                }
+            }
+
+            #sign_in {
+                border: 1px solid $greyborder;
+                background-color: $red;
+                color:white;
+                font-weight: 600;
+                text-shadow: 1px 1px  #000000;
+                box-shadow: 1px 3px 3px 1px $greyborder;
+
+                &:hover {
+        background-color: #fffafa;
+        border: 2px solid $red;
+        color:$red;
+        text-shadow:none;
+
+      }
+      
+    }
         }
     }
 }

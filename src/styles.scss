@@ -2,6 +2,7 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: "Playfair Display", serif;
 }
 
 header {
@@ -30,7 +31,8 @@ app-patient-page {
     align-self: center;
 }
 
-app-sign-in {
+app-sign-in,
+app-sign-up {
   width:100%;
   height:100%;
   display:flex;

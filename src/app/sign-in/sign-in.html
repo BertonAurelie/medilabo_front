@@ -1,13 +1,17 @@
 <div class = "sign-in_container">
     <form>
-        <label for="email"> email :</label>
-        <hr id ="email_hr">
-        <input type = "text" id ="email" name = "email">
-        
-        <label for ="password"> mot de passe :</label>
-        <hr id ="password_hr">
-        <input type = "text" id="password" name = "password">
-        
-        <button> se connecter</button>
+        <div class = "input_container">
+            <label for="email"> email :</label>
+            <hr id ="email_hr" aria-hidden="true">
+            <input type = "text" id ="email" name = "email">
+            
+            <label for ="password"> mot de passe : </label>
+            <hr id ="password_hr" aria-hidden="true">
+            <input type = "text" id="password" name = "password">
+        </div>
+        <div class = button_container>
+            <button id="sign_up"> s'inscrire</button>
+            <button id="sign_in"> se connecter</button>
+        </div>
     </form>
 </div>
