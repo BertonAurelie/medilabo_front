@@ -1,45 +1,55 @@
 <div class = "sign-up_container">
     <form>
         <div class = "input_container">
-            <label for ="lastname"> Nom* : </label>
-            <hr id ="lastname_hr" aria-hidden="true">
-            <input type = "text" id="lastname" name = "lastname">
-
-            <label for ="firstname"> Prénom* : </label>
-            <hr id ="firstname_hr" aria-hidden="true">
-            <input type = "text" id="firstname" name = "firstname">
-
-            <label for ="birthday"> Date de naissance* : </label>
-            <hr id ="birthday_hr" aria-hidden="true">
-            <input type = "text" id="birthday" name = "birthday">
-            
-                <legend>Gender:</legend>
-                <div class = "gender_box">
-                    <div>
-                        <label for="m">M</label>
-                        <input type="checkbox" name="m" value="m"/>
-                        
-                    </div>
-
-                    <div>
-                        <label for="f">F</label>
-                        <input type="checkbox"  name="f" value="f"/>
-                        
-                    </div>  
+            <div class="name">
+                <div class = "lastname_container">
+                    <label for ="lastname"> Nom* : </label>
+                    <hr id ="lastname_hr" aria-hidden="true">
+                    <input type = "text" id="lastname" name = "lastname">
                 </div>
 
-            <label for ="adress"> adresse : </label>
+                <div class = "firstname_container">
+                    <label for ="firstname"> Prénom* : </label>
+                    <hr id ="firstname_hr" aria-hidden="true">
+                    <input type = "text" id="firstname" name = "firstname">
+                </div>
+            </div>
+            <div class="birthday_gender">
+                <div class = "birthday_box">
+                <label for ="birthday"> Date de naissance* : </label>
+                <hr id ="birthday_hr" aria-hidden="true">
+                <input type = "text" id="birthday" name = "birthday">
+                </div>
+                <div class = "gender_box">
+                    <legend>Gender:</legend>
+                    <hr id ="gender_hr" aria-hidden="true">
+                    <div class = "gender_container">
+                        <div>
+                            <label for="m">M</label>
+                            <input type="checkbox" name="m" value="m"/>
+                            
+                        </div>
+
+                        <div>
+                            <label for="f">F</label>
+                            <input type="checkbox"  name="f" value="f"/>
+                            
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <label for ="adress"> Adresse : </label>
             <hr id ="adress_hr" aria-hidden="true">
             <input type = "text" id="adress" name = "adress">
 
             <div class = "adress_container">
                 <div class = "zip_container">
-                    <label for ="zip"> code postal : </label>
+                    <label for ="zip"> Code postal : </label>
                     <hr id ="zip_hr" aria-hidden="true">
                     <input type = "text" id="zip" name = "zip">
                 </div>
                 <div class = "town_container">
-                    <label for ="town"> ville : </label>
+                    <label for ="town"> Ville : </label>
                     <hr id ="town_hr" aria-hidden="true">
                     <input type = "text" id="town" name = "town">
                 </div>
@@ -49,11 +59,11 @@
             <hr id ="phonenumber_hr" aria-hidden="true">
             <input type = "text" id="phonenumber" name = "phonenumber">
 
-            <label for="email"> email* :</label>
+            <label for="email"> Email* :</label>
             <hr id ="email_hr" aria-hidden="true">
             <input type = "text" id ="email" name = "email">
             
-            <label for ="password"> mot de passe* : </label>
+            <label for ="password"> Mot de passe* : </label>
             <hr id ="password_hr" aria-hidden="true">
             <input type = "text" id="password" name = "password">
 

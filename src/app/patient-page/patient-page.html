@@ -1,42 +1,40 @@
 <div class = "patient-page_container">
     <div class="banniere">
-        <h1>Patient Toto</h1>
+        <h1>Patient {{patient?.lastName}}</h1>
+        <button routerLink="/patientsList" ><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="grid">
-        <div class="box2">
-            <h2>Hello</h2>
-        </div>
-        <div class = "box1">
-            <div >
-                <label for = "lastName">Nom : </label>
-                <p>{{patient?.lastName}}</p>
+        <div class = "container1">
+            <div class = "box1">
+                <div>
+                    <label for ="birthday">Date de naissance : </label>
+                    <p>{{patient?.birthday}}</p>
+                </div>
+                <div>
+                    <label for ="gender">Genre : </label>
+                    <p>{{patient?.gender}}</p>
+                </div>
+                <div>
+                    <label for ="adress"> Adresse : </label>
+                    <p>{{patient?.adress}}</p>
+                </div>
+                <div>
+                    <label for ="phoneNumber">Téléphone : </label>
+                    <p>{{patient?.phoneNumber}}</p>
+                </div>
             </div>
-            <div>
-                <label for = "firstName">Prénom : </label>
-                <p></p>
-            </div>
-            <div>
-                <label for ="birthday">Date de naissance : </label>
-                <p></p>
-            </div>
-            <div>
-                <label for ="gender">Genre : </label>
-                <p></p>
-            </div>
-            <div>
-                <label for ="adress"> Adresse : </label>
-                <p></p>
-            </div>
-            <div>
-                <label for ="phoneNumber">Téléphone : </label>
-                <p></p>
+            <div class="box2">
+                <h2>Hello</h2>
             </div>
         </div>
+        <form>
+            <fieldset class="box3">
+                <legend>compte rendu : </legend>
+                <textarea></textarea>
+                <button>Enter</button>
+            </fieldset>
+        </form>
         
-        <div class="box3">
-            <label for = "note"> Compte rendu : </label>
-            <input type = "text">
-        </div>
     </div>
 </div>
 

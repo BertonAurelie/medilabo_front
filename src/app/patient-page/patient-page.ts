@@ -1,11 +1,11 @@
 import { Component,OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DataService } from '../service/data-service/data-service';
 import { Patient } from '../interface/patient.data';
 
 @Component({
   selector: 'app-patient-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './patient-page.html',
   styleUrl: './patient-page.scss'
 })
