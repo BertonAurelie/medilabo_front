@@ -2,21 +2,21 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Patient } from '../../interface/patient.data';
-import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   constructor(private http:HttpClient){}
-  private url ="./data/data.json";
+  private url = "http://localhost:8080/patient";
+
+  private url2 = "./data/data.json"
 
   getPatientList(): Observable<Patient[]>{
-    return this.http.get<Patient[]>(this.url)
+    return this.http.get<Patient[]>(this.url2 )
   }
 
-
   getPatient(id: number | string): Observable<Patient>{
-    return this.http.get<Patient>(`${this.url}/patient/${id}`);
+    return this.http.get<Patient>(`${this.url}/${id}`);
   }
 }

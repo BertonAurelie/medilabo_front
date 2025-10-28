@@ -1,9 +1,11 @@
 export interface Patient {
-    id: number;
+    id: string;
     lastName: string;
     firstName: string;
     birthday: string;
+    age?: number;
     gender: string;
-    adress: string;
+    address: string;
     phoneNumber: string; 
+    isEditable: boolean;
 }

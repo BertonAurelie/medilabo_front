@@ -51,12 +51,24 @@ $border: 5px solid $greybackground;
             height:70%;
             gap:10px;
 
+            label {
+                text-decoration: underline;
+                width:40%;
+
+            }
             .box1 {
                 //background-color: rgb(121, 45, 45);
                 border-radius: 25px ;
                 width:30%;
+                height:100%;
                 border:1px solid $greyborder;
                 padding-left:20px;
+
+                .box-info {
+                    display:flex;
+                    gap : 10px;
+                    height:40px;
+                }
                 
             }
 

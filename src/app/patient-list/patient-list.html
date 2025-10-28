@@ -15,28 +15,82 @@
         <th class="index" scope="col"></th>
       </tr>
     </thead>
-    <tr class="thead-gap" aria-hidden="true">
-      <td colspan="8"></td>
-    </tr>
+    <div class="thead-gap" aria-hidden="true"></div>
     <tbody >
-      <tr  *ngFor = "let x of patients" [routerLink]="['/patient', x.id]">
-          <td id="lastName">{{x.lastName}}</td>
-          <td id="firstName">{{x.firstName}}</td>
-          <td id = "birthday">{{x.birthday}}</td>
-          <td id = "gender">{{x.gender}}</td>
-          <td id ="adress">{{x.adress}}</td>
-          <td id = "phoneNumber">{{x.phoneNumber}}</td>
-           <td class="actions">
-            <button type="button"
-                    class="icon-btn"
-                    [routerLink]="['/patient', x.id]"
-                    aria-label="Éditer"
-                    (click)="$event.stopPropagation()">
-              <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
-            </button>
+      @for (x of patients(); track $index) {
+      <tr  
+        (click)="x.isEditable ? null : navigateToPatient(x.id)"
+        [ngClass]="x.isEditable ? 'edit-mode' : null "
+
+      >
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.lastName">
+            } @else {
+              {{x.lastName}}
+            }
           </td>
-          <td><i class="fa-solid fa-xmark"></i></td>
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.firstName">
+            } @else{
+              {{x.firstName}}
+            }
+          </td>
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.birthday">
+            } @else{
+              {{x.birthday | date: 'shortDate'}}
+            }
+          </td>
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.gender">
+            } @else {
+              {{x.gender}}
+            }
+          </td>
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.address">
+            } @else {
+              {{x.address}}
+            }
+
+          </td>
+          <td>
+            @if(x.isEditable){
+              <input class="input-edit" [(ngModel)]="x.phoneNumber">
+            } @else {
+              {{x.phoneNumber}}
+            }
+
+          </td>
+          @if(x.isEditable){
+            <td (click)="$event.stopPropagation()">
+              <i class="fa-solid fa-check"></i>
+            </td>
+            <td (click)="$event.stopPropagation()">
+              <i class="fa-regular fa-circle-xmark" (click)="cancelEdit(x)" ></i>
+            </td>
+          } @else {
+            <td class="actions" >
+              <button
+                type="button"
+                (click)="onEdit(x); $event.stopPropagation()"
+                [disabled]="patientId && patientId !== x.id"
+                [attr.title]="patientId && patientId !== x.id ? 'Une édition est déjà ouverte' : null">
+                <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
+              </button>
+            </td>
+            <td (click)="$event.stopPropagation()">
+              <i class="fa-solid fa-xmark" ></i>
+            </td>
+          }
+           
       </tr>
+      }
     </tbody>
     <tfoot>
     <tr>

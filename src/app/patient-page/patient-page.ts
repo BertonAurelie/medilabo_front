@@ -1,35 +1,30 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,inject,Input,OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DataService } from '../service/data-service/data-service';
 import { Patient } from '../interface/patient.data';
+import { Observable } from 'rxjs';
+import { AsyncPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-patient-page',
-  imports: [RouterLink],
+  imports: [RouterLink, AsyncPipe, DatePipe],
   templateUrl: './patient-page.html',
   styleUrl: './patient-page.scss'
 })
-export class PatientPage implements OnInit {
-  patient?: Patient;
+export class PatientPage {
+  patient$!: Observable<Patient>
+  private dataService2 = inject(DataService);
 
-  constructor(private activated: ActivatedRoute, private dataService: DataService){}
-
-  ngOnInit():void {
-    this.activated.paramMap.subscribe(
-      (data) => {
-        console.log(data)
-        const id = data.get('id');
-        if(!id) return;
-
-        this.dataService.getPatient(id).subscribe(p =>{
-          console.log(p)
-          this.patient = p;
-        })
-
-      }
-    )
+  @Input()
+  set id(id: string){
+    this.patient$ = this.dataService2.getPatient(id);
   }
 
+  calculAge(birthday: string): number {
+    let birthdayDate = new Date(birthday);
+    let timeDiff = Math.abs(Date.now() - birthdayDate.getTime());
+    let age = Math.floor((timeDiff/(1000 * 3600 * 24))/ 365.25);
 
-
+    return age;
+  }
 }

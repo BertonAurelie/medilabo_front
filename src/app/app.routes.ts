@@ -9,8 +9,9 @@ import { PatientPage } from './patient-page/patient-page';
 
 export const routes: Routes = [
     { path:'signUp', component: SignUp },
-    { path: '', component: HomePage},
     {path:'signIn', component: SignIn},
     {path:'patientsList', component: PatientList},
-    {path:'patient/:id', component: PatientPage}
+    {path:'patient/:id', component: PatientPage},
+    
+    { path: '', component: HomePage, pathMatch: 'full'},
 ];

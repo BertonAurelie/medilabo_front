@@ -32,6 +32,7 @@ app-root{
             align-items: center;
             margin-left: 15px;
             box-shadow: inset 0px 0px 20px 0px #f9ecec;
+            margin-bottom: 30px;
         }
     }
 }
@@ -42,8 +43,10 @@ app-home-page{
   height:85vh;
 }
 app-patient-list {
+  padding-top: 30px;
+  padding-bottom: 30px;
   width:100%;
-  height:85vh;
+  height:100%;
   display:flex;
   justify-content: center;
   flex-direction: column;
