@@ -14,46 +14,76 @@
         <th class="index" scope="col"></th>
         <th class="index" scope="col"></th>
       </tr>
+      <tr class="thead-gap" aria-hidden="true">
+          <th class="thead-gap__th"></th>
+      </tr>
     </thead>
-    <div class="thead-gap" aria-hidden="true"></div>
+    
     <tbody >
       @for (x of patients(); track $index) {
       <tr  
         (click)="x.isEditable ? null : navigateToPatient(x.id)"
-        [ngClass]="x.isEditable ? 'edit-mode' : null "
+        [ngClass]="x.isEditable ? 'edit-mode' : null " 
 
       >
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.lastName">
+              <input 
+                class="input-edit" 
+                type="text"
+                [(ngModel)]="x.lastName"
+                name = "lastName"
+                >
             } @else {
+              
               {{x.lastName}}
             }
           </td>
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.firstName">
+              <input 
+                class="input-edit" 
+                type="text"
+                [(ngModel)]="x.firstName"
+                name = "firstName"
+              >
             } @else{
               {{x.firstName}}
             }
           </td>
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.birthday">
+              <input 
+                class="input-edit" 
+                type="text"
+                [(ngModel)]="x.birthday"
+                name = "birthday"
+              >
             } @else{
               {{x.birthday | date: 'shortDate'}}
             }
           </td>
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.gender">
+              <input 
+                class="input-edit"
+                type="text" 
+                [(ngModel)]="x.gender"
+                (ngModelChange)="x.gender = $event.toUpperCase()"
+                name = "gender"
+              >
             } @else {
               {{x.gender}}
             }
           </td>
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.address">
+              <input 
+                class="input-edit" 
+                type="text" 
+                [(ngModel)]="x.address"
+                name = "address"
+              >
             } @else {
               {{x.address}}
             }
@@ -61,7 +91,12 @@
           </td>
           <td>
             @if(x.isEditable){
-              <input class="input-edit" [(ngModel)]="x.phoneNumber">
+              <input 
+                class="input-edit" 
+                type="text" 
+                [(ngModel)]="x.phoneNumber"
+                name = "phoneNumber"
+              >
             } @else {
               {{x.phoneNumber}}
             }
@@ -69,27 +104,45 @@
           </td>
           @if(x.isEditable){
             <td (click)="$event.stopPropagation()">
-              <i class="fa-solid fa-check"></i>
+              <button 
+                type ="submit" 
+                (click)="validEdit(x)" 
+                class = "button_valid-edit"
+              >
+                <i class="fa-solid fa-check" ></i>
+              </button>
             </td>
             <td (click)="$event.stopPropagation()">
-              <i class="fa-regular fa-circle-xmark" (click)="cancelEdit(x)" ></i>
+              <button 
+                (click)="cancelEdit(x)" 
+                class="button_cancel-edit"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </td>
           } @else {
-            <td class="actions" >
+            <td (click)="$event.stopPropagation()" >
               <button
                 type="button"
-                (click)="onEdit(x); $event.stopPropagation()"
+                (click)="onEdit(x)"
                 [disabled]="patientId && patientId !== x.id"
-                [attr.title]="patientId && patientId !== x.id ? 'Une édition est déjà ouverte' : null">
+                [attr.title]="patientId && patientId !== x.id ? 'Une édition est déjà ouverte' : null"
+                class="button-edit-patient"
+                >
                 <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i>
               </button>
             </td>
             <td (click)="$event.stopPropagation()">
-              <i class="fa-solid fa-xmark" ></i>
+              <button
+                (click)="deletePatient(x.id); "
+                [disabled]="patientId && patientId !== x.id"
+                class="button_delete-patient"
+                >
+                  <i class="fa-solid fa-xmark" ></i>
+              </button>
             </td>
           }
-           
-      </tr>
+        </tr>
       }
     </tbody>
     <tfoot>

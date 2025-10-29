@@ -1,9 +1,7 @@
 $red2: rgb(196, 52, 52);
-//#e26565
 $red: #d9d9d9;
 $rougegradient: #fcd7cf;
 $greybackground: rgba(210, 208, 208, 0.363);
-
 $red: #d9d9d9;
 $greyborder : rgba(160, 158, 158, 0.363);
 
@@ -21,8 +19,6 @@ h1 {
 table {
   display: table;
   width: 90%;
-  //min-height: 400px;
-  background: transparent;
   text-align: center;
   border-radius: 25px;
   border-collapse: separate;
@@ -35,19 +31,17 @@ table {
         border-top:1px solid rgba(160, 158, 158, 0.363);
         border-bottom:1px solid rgba(160, 158, 158, 0.363);
         background: white;
-        //color: #000000;
         height: 50px;
         text-align: center;
-        
       }
 
-      th:first-child {
+      .index:first-child {
         border-radius: 25px 0 0 25px;
         border:1px solid rgba(160, 158, 158, 0.363);
         border-right: transparent;
       }
 
-      th:last-child {
+      .index:last-child {
         border-radius: 0 25px 25px 0;
         margin-right: 10px;
         border:1px solid rgba(160, 158, 158, 0.363);
@@ -57,31 +51,25 @@ table {
     }
 
     :nth-child(1){
-      //color:rgb(158, 61, 77);
       width:20%;
     }
 
     :nth-child(2){
-      //color:rgb(192, 255, 203);
       width:20%;
     }
 
     :nth-child(3){
-      //color:pink;
       width:10%;
     }
 
     :nth-child(4){
-      //color:rgb(208, 192, 255);
       width:4%;
     }
 
     :nth-child(5){
-      //color:rgb(63, 151, 46);
       width:28%;
     }
     :nth-child(6){
-      //color:rgb(177, 162, 90);
       width:12%;
     }
 
@@ -89,23 +77,25 @@ table {
     :nth-child(8) {
       width: 3%;
     }
-  }
-
-  .thead-gap{
+    
+    .thead-gap{
       width:100%;
       height:30px;
-      background-color: #fffafa;   
+      border: transparent;
+
+      .thead-gap__th{
+        border: transparent;
+      }
     }
+  }
 
   tbody {  
-    position: relative; 
     background-color: white;
-    border-radius: 25px;
     font-size: 19px;
+    border-radius: 25px;
 
-    
+    tr:first-child {
 
-    tr:nth-child(1) {
       td:first-child {
         border-radius: 25px 0 0 0;
       }
@@ -124,13 +114,13 @@ table {
       }
 
       td :last-child {
-        border-radius:25px;
-        border: transparent;
+        border: none;
       }
 
       &:hover {
         background-color: $greybackground;
         box-shadow: inset 4px 0 0 $red, inset -4px 0 0 $red;
+        overflow: hidden;
 
         &:first-child{
           border-radius: 25px 25px 0 0;
@@ -140,86 +130,111 @@ table {
           border-radius: 0 0 25px 25px;
         }
       }
+    }
 
-      td:nth-child(1){
-        //background-color: #fcd7cf;
-      }
+    .button-edit-patient {
+      width:100%;
+      height:100%;
+      font-size: 18px;
+      background-color: transparent;
+    }
 
-      td:nth-child(2){
-        //background-color: #fccff3;
-      }
-
-      td:nth-child(3){
-        //background-color: #fcd7cf;
-      }
-
-      td:nth-child(4){
-        //background-color: #f9fccf;
-      }
-
-      td:nth-child(5){
-        //background-color: #d3cffc;
-      }
-
-      td:nth-child(6){
-        //background-color: #b93e22;
-      }
-
-      td:nth-child(7){
-        //background-color: #39302e;
-      }
-
-      &:focus :target-within {
-        background-color: $greybackground;
-      }
+    .button_delete-patient {
+      width:100%;
+      height:100%;
+      background-color: red;
+      
+      font-size: 18px;
     }
   }
 }
 
 .edit-mode {
-  background-color: $greybackground;
   color: $red2;
-  
-  transform: translateY(-4px);     /* léger décalage */
-  z-index: 10;                     /* passe au-dessus des voisines */
+  transform: translateY(-4px);
+  z-index: 10;                     
   box-shadow: 0 10px 16px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.08);
   border:1px solid black;
+
+  .button_valid-edit{
+    width:80%;
+    height:50%;
+    font-size: 20px;
+    color:rgb(244, 243, 243);
+    background-color: green;
+    border-radius: 25px;
+    margin-right: 10px;
+  }
+
+  .button_cancel-edit{
+    width:80%;
+    height:50%;
+    font-size: 18px;
+    color:rgb(244, 243, 243);
+    background-color: rgb(128, 0, 0);
+    border-radius: 25px;
+  }
   
   .input-edit{
-    
-    width:100%;
-    height: 100%;
+    align-self: center;
+    width:85%;
+    height: 80%;
     text-align: center;
     background-color: transparent;
-    border:none;
     font-size: 19px;
     font-weight: bolder;
+    outline: none;
 
-    &:hover,
-    &:focus{
-      color: $red2;
-      outline: none;
-      border:none;
-      background-color: transparent;
+    &:focus,
+    &:hover {
+      text-decoration: underline;
     }
   }
-
-  
 }
 
-.actions{
-
-    button{
-      background-color: transparent;
-
-      width:100%;
-      height:100%;
-
-      i {
-        font-size: 18px;
-      }
-      
-    }
+table:has(tbody tr.edit-mode) {
+  
+  tbody tr:not(.edit-mode) {
+    background-color: $greybackground;
+    opacity: .55;
+    filter: grayscale(20%);
+    pointer-events: none;
   }
 
-  .actions.is-disabled { opacity: .5; cursor: not-allowed; }
+  tbody tr:not(.edit-mode) .actions button {
+    cursor: not-allowed;
+    opacity: .5; 
+  }
+}
+
+table tbody tr.edit-mode{
+
+  td{
+    border-bottom: 1px solid $red2;
+    border-top: 1px solid $red2;
+  }
+
+  td:last-child {border-right: 5px solid $red2;}
+
+  td:first-child {border-left: 5px solid $red2;}
+}
+
+table tbody tr.edit-mode,
+table tbody tr.edit-mode:hover {
+  background-color: #ffffff;
+}
+
+table:has(tbody tr.edit-mode) tbody tr:not(.edit-mode):hover {
+  background-color: inherit;
+  box-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+

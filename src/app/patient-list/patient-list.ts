@@ -1,10 +1,9 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { DataService } from '../service/data-service/data-service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Patient } from '../interface/patient.data';
 import { Router } from '@angular/router';
 import { FormsModule, NgModel } from '@angular/forms';
-import { empty } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -33,6 +32,21 @@ export class PatientList implements OnInit{
   navigateToPatient(id: string){
     this.router.navigate(['/patient', id])
   }
+
+  validEdit(patient: Patient){
+    if(!patient.firstName || !patient.lastName || !patient.birthday || !patient.gender || !patient.address ||!patient.phoneNumber){
+      alert("attention, aucun champs ne doit être vide.")
+    } else if(patient.gender != "F" && patient.gender != "M" ){
+      alert(" Merci d'indiquer un genre valide (F ou M)")
+    }else {
+      console.log(patient);
+      this.dataService.editPatient(patient).subscribe();
+
+      patient.isEditable = false;
+      this.patient = undefined;
+      this.patientId = undefined;
+    }
+  }
   
   cancelEdit(row: Patient){
     if(this.patientId == row.id && this.patient){
@@ -51,5 +65,14 @@ export class PatientList implements OnInit{
     this.patientId = row.id;
     
     row.isEditable = true;
-    }
+  }
+
+  deletePatient(id: string) {
+    console.log(id);
+      this.dataService.deletePatient(id).subscribe();
+  }
+
+  
 }
+
+
