@@ -9,23 +9,28 @@ $border: 5px solid $greybackground;
     border-radius: 25px;
     width:98%;
     height:98%;
-    gap:10px;
+    gap:15px;
+
 
     .banniere {
+        padding-top:10px;
         display:flex;
         width:98%;
-        height:15%;
-        align-self: center;
+        height:11%;
+        padding-right: 20px;
         justify-content: space-between;
         align-items: center;
-        padding-right: 20px;
+        gap:15px;
 
         h1{
-        height:100%;
-        width:90%;
-        background-color: rgba(166, 219, 219, 0.47);
-        border-radius: 25px;
-        padding-left: 20px;
+            display:flex;
+            align-items: center;
+            height:100%;
+            width:90%;
+            background-color: rgba(166, 219, 219, 0.47);
+            border-radius: 25px;
+            padding-left: 30px;
+        
         }
        button{
         text-align: center;
@@ -42,8 +47,9 @@ $border: 5px solid $greybackground;
         display: flex;
         flex-direction: column;
         width:100%;
-        height: 100%;
+        height: 85%;
         gap:10px;
+
 
         .container1{
             display:flex;
@@ -59,7 +65,7 @@ $border: 5px solid $greybackground;
             .box1 {
                 //background-color: rgb(121, 45, 45);
                 border-radius: 25px ;
-                width:30%;
+                width:33%;
                 height:100%;
                 border:1px solid $greyborder;
                 padding-left:20px;
@@ -68,6 +74,54 @@ $border: 5px solid $greybackground;
                     display:flex;
                     gap : 10px;
                     height:40px;
+                    align-items: center;
+                    input{
+                        border:none;
+                        background-color: transparent;
+                        align-items: center;
+                        font-size: 16px;
+                        outline:none;
+                    }
+
+                    input.none {
+                        background-color: #8bc34a;
+                        color: white;
+                        border-radius: 50%;
+                        width:90px;
+                        height:90px;
+                        margin-top: 50px;
+                        text-align: center;
+                        }
+
+                        input.borderline {
+                        margin-top: 50px;
+                        text-align: center;
+                        background-color: #ffeb3b; 
+                        color: black;
+                        border-radius: 50%;
+                        width:90px;
+                        height:90px;
+                        }
+
+                        input.in\ danger {
+                        background-color: #f44336; 
+                        color: white;
+                        border-radius: 50%;
+                        width:90px;
+                        height:90px;
+                        margin-top: 50px;
+                        text-align: center;
+                        }
+
+                        input.early\ onset {
+                            background-color: orange;
+                            color: black;
+                            border-radius: 50%;
+                            width:90px;
+                            height:90px;
+                            margin-top: 50px;
+                            text-align: center;
+                        }
                 }
                 
             }
@@ -75,15 +129,52 @@ $border: 5px solid $greybackground;
             .box2 {
                // background-color: rgb(96, 82, 141);
                 border-radius:25px;
-                width:70%;
-                border:1px solid $greyborder;
-                padding-left:20px;
-                background-color: rgba(166, 219, 219, 0.47);
+                width:67%;
+                //border:1px solid $greyborder;
+                padding:0 20px;
+                //background-color: rgba(166, 219, 219, 0.47);
+                align-items: center;
+                justify-content: center;
+                min-width: 0;            
+                min-height: 0;           
+                max-height: 100%;        
+                overflow-y: auto; 
+
+                .report{
+                    font-size: 20px;
+                    padding-bottom: 10px;
+                    //border-bottom: 1px solid black;
+                    
+                    .report_date{
+                        font-size: 18px;
+                        margin-top: 10px;
+                        width:150px;
+                        background-color: $greybackground;
+                        border:1px solid $greyborder;
+                        border-radius: 25px;
+                        text-align: center;
+                    }
+
+                    .report_note{
+                        padding-left: 20px;
+                    }
+                }
+
+                
+
+                hr{
+                    width: 80%;
+                    margin: 1rem auto;     
+                    border: none;          
+                    border-top: 1px solid $greyborder; 
+
+                }
             }
         }
         form{
             width:99%;
             height:30%;
+            padding-bottom:10px;
 
             .box3 {
                 display:flex;
@@ -120,10 +211,11 @@ $border: 5px solid $greybackground;
                     border:none;
                     background-color: $greybackground;
                     border:1px solid $greyborder;
-                    margin-right: 5px;
+                    margin-right: 15px;
                 }
             }
         }
         
     }
 }
+

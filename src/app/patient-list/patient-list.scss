@@ -142,12 +142,17 @@ table {
     .button_delete-patient {
       width:100%;
       height:100%;
-      background-color: red;
-      
       font-size: 18px;
+      background-color: transparent;
     }
+
+    
+
+    
   }
 }
+
+
 
 .edit-mode {
   color: $red2;
@@ -227,6 +232,10 @@ table tbody tr.edit-mode:hover {
 table:has(tbody tr.edit-mode) tbody tr:not(.edit-mode):hover {
   background-color: inherit;
   box-shadow: none;
+}
+
+table tbody > tr:first-of-type td:last-child .button_delete-patient {
+  border-radius: 0 25px 0 0;
 }
 
 

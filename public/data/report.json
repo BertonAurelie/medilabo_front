@@ -1,0 +1,17 @@
+[  
+  {  
+    "id":"1254231",
+    "idpatient": 1,  
+    "note": "il etait une fois une note"
+  },  
+  {  
+    "id":"1254231",
+    "idpatient": 2,  
+    "note": "TestBorderline"
+  },
+  {
+    "id":"1254231",
+    "idpatient":"1",
+    "note":"deuxieme note"
+  }
+]

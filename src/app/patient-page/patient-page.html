@@ -9,38 +9,57 @@
             <div class = "box1">
                 <div class = "box-info">
                     <label for ="gender">Genre : </label>
-                    <p>{{patient.gender}}</p>
+                    <input id="gender" [value]="patient.gender" readonly aria-readonly="true" />
                 </div>
                 <div class = "box-info">
                     <label for ="birthday">Date de naissance : </label>
-                    <p>{{patient.birthday | date: 'shortDate'}}</p>
+                    <input id="birthday" [value]="(patient.birthday | date:'shortDate')" readonly aria-readonly="true" />
                 </div>
                 <div class = "box-info">
                     <label for ="adress"> Âge : </label>
-                    <p>{{patient.age}}</p>
+                    <input id="age" [value]="patient.age" readonly aria-readonly="true" />
                 </div>
                 
                 <div class = "box-info">
                     <label for ="phoneNumber">Téléphone : </label>
-                    <p>{{patient.phoneNumber}}</p>
+                    <input id="phoneNumber" [value]="patient.phoneNumber" readonly aria-readonly="true" />
                 </div>
                 <div class = "box-info">
                     <label for ="adress"> Adresse : </label>
-                    <p>{{patient.address}}</p>
+                    <input id="address" [value]="patient.address" readonly aria-readonly="true" />
+                </div>
+                <div class="box-info">
+                    <label for="diabetes">Risque de diabète :</label>
+
+                    <input id="diabetes"
+                        [value]="diabetesRisk"
+                        readonly
+                        [ngClass]="diabetesRisk" 
+                    />
                 </div>
             </div>
             <div class="box2">
-                <h2>Hello</h2>
+                @for (reportt of (reportt$ | async) ?? []; track $index) {
+                    <div class = "report">
+                        <p class ="report_date">{{ reportt.dateNote | date:'shortDate' }}</p>
+                        <p class="report_note">{{reportt.note}}</p>
+                    </div>
+                    <hr>
+                }
             </div>
         </div>
-        <form>
+        <form (ngSubmit)="addReport()">
             <fieldset class="box3">
-                <legend>compte rendu : </legend>
-                <textarea></textarea>
-                <button>Enter</button>
+                <legend>compte rendu :</legend>
+                <textarea
+                [(ngModel)]="report.note"
+                name="note"
+                required
+                ></textarea>
+
+                <button type="submit">Enter</button>
             </fieldset>
-        </form>
-        
+        </form>  
     </div>
     }
 </div>

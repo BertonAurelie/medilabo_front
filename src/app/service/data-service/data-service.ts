@@ -10,7 +10,7 @@ import { urlToHttpOptions } from 'node:url';
 })
 export class DataService {
   constructor(private http:HttpClient){}
-  private url = "http://localhost:8080/patient";
+  private url = "http://localhost:8081/patient";
 
   private url2 = "./data/data.json"
 
@@ -31,7 +31,7 @@ export class DataService {
     );
   }
 
-  deletePatient(id: string): Observable<void>{
+  deletePatient(id: number): Observable<void>{
     return this.http.delete<void>(`${this.url}/delete/${id}`) .pipe(
       catchError(err => {
         console.log('handling delete error', err);

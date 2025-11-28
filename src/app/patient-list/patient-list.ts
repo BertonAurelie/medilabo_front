@@ -18,7 +18,7 @@ export class PatientList implements OnInit{
   patients= signal<Patient[]>([]);
 
   public  patient?: Patient;
-  public patientId?: string;
+  public patientId?: number;
 
   constructor(private dataService:DataService){}
 
@@ -29,7 +29,7 @@ export class PatientList implements OnInit{
   }
   
 
-  navigateToPatient(id: string){
+  navigateToPatient(id: number){
     this.router.navigate(['/patient', id])
   }
 
@@ -67,7 +67,7 @@ export class PatientList implements OnInit{
     row.isEditable = true;
   }
 
-  deletePatient(id: string) {
+  deletePatient(id: number) {
     console.log(id);
       this.dataService.deletePatient(id).subscribe();
   }
