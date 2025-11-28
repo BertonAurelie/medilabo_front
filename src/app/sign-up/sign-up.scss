@@ -51,16 +51,18 @@ $border: 5px solid $greybackground;
                 padding-left: 20px;
                 border: none;
             }
+            
+                .gender_container {
+                    display:flex;
+                    flex-direction: row;
 
-            .gender_container {
-                display:flex;
-                
-                div {
+
                     label{
+                        display:flex;
                         font-size: 20px;
                     }
 
-                    input[type="checkbox"]{
+                    input[type="radio"]{
                         width:20px;
                         height:30px;
                         margin-left: 0;
@@ -72,9 +74,8 @@ $border: 5px solid $greybackground;
                     width: 70px;
                     height:40px;
                     gap:10px;
-                }
 
-            }
+            }         
 
             hr{
                 margin-left: 20px;

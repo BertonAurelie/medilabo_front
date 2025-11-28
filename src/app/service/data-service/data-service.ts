@@ -4,6 +4,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { Patient } from '../../interface/patient.data';
 import { error } from 'node:console';
 import { urlToHttpOptions } from 'node:url';
+import { PatientDtoPost } from '../../interface/patientDtoPost';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,14 @@ export class DataService {
       })
     )
   }
+
+  addPatient(patient: PatientDtoPost): Observable<Patient> {
+  return this.http.post<Patient>(this.url, patient).pipe(
+    catchError(err => {
+      console.log('handling add error', err);
+      return throwError(() => err);
+    })
+  );
+}
 
 }

@@ -1,11 +1,12 @@
-export interface Patient {
-    id: number;
+export interface PatientDtoPost {
     lastName: string;
     firstName: string;
     birthday: string;
-    age?: number;
     gender: string;
     address: string;
+    zip?: string;
+    town?: string;
     phoneNumber: string; 
-    isEditable: boolean;
+    email:string;
+    password:string;
 }
