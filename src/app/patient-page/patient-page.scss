@@ -103,7 +103,7 @@ $border: 5px solid $greybackground;
                         height:90px;
                         }
 
-                        input.in\ danger {
+                        input.in.danger {
                         background-color: #f44336; 
                         color: white;
                         border-radius: 50%;
@@ -113,9 +113,9 @@ $border: 5px solid $greybackground;
                         text-align: center;
                         }
 
-                        input.early\ onset {
-                            background-color: orange;
-                            color: black;
+                        input.early.onset {
+                            background-color: rgb(71, 9, 9);
+                            color: rgb(230, 230, 230);
                             border-radius: 50%;
                             width:90px;
                             height:90px;

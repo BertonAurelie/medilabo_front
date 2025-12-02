@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { PatientDtoPost } from '../interface/patientDtoPost';
 import { DataService } from '../service/data-service/data-service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [FormsModule],
+  imports: [FormsModule, DatePipe],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.scss'
 })

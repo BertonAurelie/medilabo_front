@@ -31,4 +31,10 @@ export class ReportService {
       responseType: 'text'  
     }) as Observable<string>;
   }
+
+  deleteReport(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.url}`, {
+      params:{id}
+    })
+  }
 }

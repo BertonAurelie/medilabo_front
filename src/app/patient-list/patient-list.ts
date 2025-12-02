@@ -4,6 +4,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Patient } from '../interface/patient.data';
 import { Router } from '@angular/router';
 import { FormsModule, NgModel } from '@angular/forms';
+import { ReportService } from '../service/report-service/report-service';
+
 
 @Component({
   standalone: true,
@@ -19,13 +21,19 @@ export class PatientList implements OnInit{
 
   public  patient?: Patient;
   public patientId?: number;
+  showDeleteModal = false;
+  userIdToDelete: number | null = null;
 
-  constructor(private dataService:DataService){}
+  constructor(private dataService:DataService, private reportService:ReportService){}
 
+  loadPatients() {
+    this.dataService.getPatientList().subscribe((data) => {
+      this.patients.set(data);
+    });
+  }
   ngOnInit(){
-    this.dataService.getPatientList().subscribe((data) => 
-      this.patients.set(data));
-      console.log(this.patients)  
+    this.loadPatients();
+    console.log(this.patients)  
   }
   
 
@@ -69,10 +77,29 @@ export class PatientList implements OnInit{
 
   deletePatient(id: number) {
     console.log(id);
-      this.dataService.deletePatient(id).subscribe();
+    this.dataService.deletePatient(id).subscribe();
+    this.reportService.deleteReport(id).subscribe();
   }
 
-  
+  openDeleteModal(id: number) {
+    this.userIdToDelete = id;
+    this.showDeleteModal = true;
+  }
+
+  closeDeleteModal() {
+    this.showDeleteModal = false;
+    this.userIdToDelete = null;
+  }
+
+  confirmDelete() {
+    if (this.userIdToDelete != null) {
+      this.dataService.deletePatient(this.userIdToDelete).subscribe(() => {
+        console.log("Utilisateur supprimé !");
+        this.closeDeleteModal();
+        this.loadPatients();
+      });
+    }
+  }
 }
 
 

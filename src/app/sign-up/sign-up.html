@@ -17,7 +17,8 @@
                 <div class = "birthday_box">
                     <label for ="birthday"> Date de naissance* : </label>
                     <hr id ="birthday_hr" aria-hidden="true">
-                <input type = "text" id="birthday" name = "birthday" [(ngModel)]="patient.birthday" required>
+                <input type = "date" id="birthday" name = "birthday" [(ngModel)]="patient.birthday" required > 
+                {{ patient.birthday | date : 'dd/MM/yyyy' }}
                 </div>
                 <div class = "gender_box">
                     <legend>Gender:</legend>

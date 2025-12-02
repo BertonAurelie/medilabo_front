@@ -1,9 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Patient } from '../../interface/patient.data';
-import { error } from 'node:console';
-import { urlToHttpOptions } from 'node:url';
 import { PatientDtoPost } from '../../interface/patientDtoPost';
 
 @Injectable({
@@ -33,12 +31,9 @@ export class DataService {
   }
 
   deletePatient(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.url}/delete/${id}`) .pipe(
-      catchError(err => {
-        console.log('handling delete error', err);
-        return throwError(() => err);
-      })
-    )
+    return this.http.delete<void>(`${this.url}`, {
+      params:{id}
+    })
   }
 
   addPatient(patient: PatientDtoPost): Observable<Patient> {

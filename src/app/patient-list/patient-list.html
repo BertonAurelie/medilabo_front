@@ -60,7 +60,7 @@
                 name = "birthday"
               >
             } @else{
-              {{x.birthday | date: 'shortDate'}}
+              {{x.birthday | date: 'dd/MM/yyyy'}}
             }
           </td>
           <td>
@@ -134,12 +134,25 @@
             </td>
             <td (click)="$event.stopPropagation()">
               <button
-                (click)="deletePatient(x.id); "
+                (click)="openDeleteModal(x.id)"
                 [disabled]="patientId && patientId !== x.id"
                 class="button_delete-patient"
                 >
                   <i class="fa-solid fa-xmark" ></i>
               </button>
+
+            <!-- MODALE -->
+            <div class="modal-backdrop" *ngIf="showDeleteModal">
+              <div class="modal">
+                <h3>Confirmer la suppression</h3>
+                <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+
+                <div class="modal-btns">
+                  <button class="confirm" (click)="confirmDelete()">Oui, supprimer</button>
+                  <button class="cancel" (click)="closeDeleteModal()">Annuler</button>
+                </div>
+              </div>
+            </div>
             </td>
           }
         </tr>

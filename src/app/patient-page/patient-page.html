@@ -13,7 +13,7 @@
                 </div>
                 <div class = "box-info">
                     <label for ="birthday">Date de naissance : </label>
-                    <input id="birthday" [value]="(patient.birthday | date:'shortDate')" readonly aria-readonly="true" />
+                    <input id="birthday" [value]="(patient.birthday | date:'dd/MM/yyyy')" readonly aria-readonly="true" />
                 </div>
                 <div class = "box-info">
                     <label for ="adress"> Âge : </label>
@@ -39,9 +39,9 @@
                 </div>
             </div>
             <div class="box2">
-                @for (reportt of (reportt$ | async) ?? []; track $index) {
+                @for (reportt of (reportt$ | async ) ?? [] ; track $index ) {
                     <div class = "report">
-                        <p class ="report_date">{{ reportt.dateNote | date:'shortDate' }}</p>
+                        <p class ="report_date">{{ reportt.dateNote | date:'dd/MM/yyyy' }}</p>
                         <p class="report_note">{{reportt.note}}</p>
                     </div>
                     <hr>
