@@ -1,17 +1,35 @@
-<div class = "sign-in_container">
-    <form>
-        <div class = "input_container">
-            <label for="email"> email :</label>
-            <hr id ="email_hr" aria-hidden="true">
-            <input type = "text" id ="email" name = "email">
-            
-            <label for ="password"> mot de passe : </label>
-            <hr id ="password_hr" aria-hidden="true">
-            <input type = "text" id="password" name = "password">
+<div class="sign-in_container">
+    <form (ngSubmit)="loginPatient()" #loginForm="ngForm">
+
+        <div class="input_container">
+            <label for="email">Email :</label>
+            <hr id="email_hr" aria-hidden="true">
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="email" 
+                required />
+
+            <label for="password">Mot de passe :</label>
+            <hr id="password_hr" aria-hidden="true">
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="password" 
+                required />
         </div>
-        <div class = button_container>
-            <button id="sign_up"> s'inscrire</button>
-            <button id="sign_in"> se connecter</button>
+
+        <div class="button_container">
+            <button id="sign_up" type="button" (click)="router.navigate(['/signUp'])">
+                S'inscrire
+            </button>
+
+            <button id="sign_in" type="submit" [disabled]="loginForm.invalid">
+                Se connecter
+            </button>
         </div>
     </form>
 </div>
+

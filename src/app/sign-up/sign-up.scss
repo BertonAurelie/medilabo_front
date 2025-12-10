@@ -135,35 +135,41 @@ $border: 5px solid $greybackground;
                 font-weight: 700;
             }
 
-            
+            .email_password{
+                display:flex;
+                width:100%;
+
+                .email{
+                    width:50%;
+
+                    input{
+                        width:90%
+                    }
+                }
+
+                .password{
+                    width:50%;
+
+                    input{
+                        width:90%
+                    }
+                }
+            }
         }
-        
               
         .button_container {
             display:flex;
+            flex-direction: column;
             width:100%;
-            height:25%;
+            height:15%;
             align-items: center;
-            gap : 30px;
             justify-content: center;
 
             button{
                 border-radius: 10px;
                 width:30%;
-                height: 50px;
                 font-size: 18px; 
-                margin: 20px 0;   
-            }
-
-            #sign_in{
-                background-color: white;
-                border: 2px solid $greyborder;
-                box-shadow: -1px 3px 3px 1px $greyborder;
-
-                &:hover{
-                    background-color: rgb(247, 247, 247);
-                    font-weight: 600;
-                }
+                margin: 20px 0 10px 0;   
             }
 
             #sign_up {
@@ -173,16 +179,23 @@ $border: 5px solid $greybackground;
                 font-weight: 600;
                 text-shadow: 1px 1px  #000000;
                 box-shadow: 1px 3px 3px 1px $greyborder;
+                height:50px;
 
                 &:hover {
-        background-color: #fffafa;
-        border: 2px solid $red;
-        color:$red;
-        text-shadow:none;
+                    background-color: #fffafa;
+                    border: 2px solid $red;
+                    color:$red;
+                    text-shadow:none;
 
-      }
+                }
       
-    }
+            }
+
+            a{
+                font-size: 16px;
+                color:black;
+
+            }
         }
     }
 }
@@ -216,4 +229,46 @@ $border: 5px solid $greybackground;
     margin:20px 0;
   }
 
+}
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(123, 123, 123, 0.13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+}
+
+.modal {
+  background: #fffafa;
+  padding: 20px 30px;
+  border-radius: 8px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal-btns {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+button.confirm {
+  background: #d9534f;
+  color: white;
+  padding:15px;
+  border-radius: 10px;
+  border:1px solid #d9534f;
+
+}
+
+.error{
+    color:red;
+    font-size: 16px;
 }

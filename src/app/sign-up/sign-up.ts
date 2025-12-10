@@ -1,16 +1,20 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { PatientDtoPost } from '../interface/patientDtoPost';
 import { DataService } from '../service/data-service/data-service';
-import { DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
-  imports: [FormsModule, DatePipe],
+  imports: [CommonModule, FormsModule],
   templateUrl: './sign-up.html',
   styleUrl: './sign-up.scss'
 })
 export class SignUp {
+  private router = inject(Router);
+  showDeleteModal = false;
+
     patient: PatientDtoPost = {
     lastName: '',
     firstName: '',
@@ -26,6 +30,18 @@ export class SignUp {
 
   constructor(private dataService: DataService) {}
 
+  navigateToLogin(){
+    this.router.navigate(['login']);
+  }
+
+  openDeleteModal() {
+    this.showDeleteModal = true;
+  }
+
+  confirmDelete() {
+    this.navigateToLogin();
+  }
+  
   onSubmit(form: NgForm) {
     if (form.invalid) {
       return;
@@ -53,5 +69,10 @@ export class SignUp {
         console.error('Erreur lors de la création', err);
       }
     });
+
+    this.openDeleteModal();
   }
+
+  
+  
 }

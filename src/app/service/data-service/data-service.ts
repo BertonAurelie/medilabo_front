@@ -9,20 +9,20 @@ import { PatientDtoPost } from '../../interface/patientDtoPost';
 })
 export class DataService {
   constructor(private http:HttpClient){}
-  private url = "http://localhost:8081/patient";
+  private url = "http://localhost:8080/patient";
 
   private url2 = "./data/data.json"
 
   getPatientList(): Observable<Patient[]>{
-    return this.http.get<Patient[]>(this.url)
+    return this.http.get<Patient[]>(this.url, {withCredentials: true} )
   }
 
   getPatient(id: number | string): Observable<Patient>{
-    return this.http.get<Patient>(`${this.url}/${id}`);
+    return this.http.get<Patient>(`${this.url}/${id}`, {withCredentials: true});
   }
 
   editPatient(patient: Patient): Observable<Patient>{
-    return this.http.put<Patient>(`${this.url}`, patient).pipe(
+    return this.http.put<Patient>(`${this.url}`, patient, {withCredentials: true}).pipe(
       catchError(err => {
             console.log('Handling error locally and rethrowing it...', err);
             return throwError(() => err);
@@ -30,14 +30,15 @@ export class DataService {
     );
   }
 
-  deletePatient(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.url}`, {
-      params:{id}
-    })
+  deletePatient(id: number): Observable<void> {
+    return this.http.delete<void>(
+      `${this.url}/delete/${id}`,
+      { withCredentials: true }
+    );
   }
 
   addPatient(patient: PatientDtoPost): Observable<Patient> {
-  return this.http.post<Patient>(this.url, patient).pipe(
+  return this.http.post<Patient>(`${this.url}/add`, patient, { withCredentials: true }).pipe(
     catchError(err => {
       console.log('handling add error', err);
       return throwError(() => err);

@@ -1,24 +1,33 @@
 <div class = "sign-up_container">
   <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
         <div class = "input_container">
-            <div class="name">
+            <div class="box">
                 <div class = "lastname_container">
                     <label for ="lastname"> Nom* : </label>
                     <hr id ="lastname_hr" aria-hidden="true">
-                    <input type = "text" id="lastname" name = "lastname" [(ngModel)]="patient.lastName" required>
+                    <input type = "text" id="lastname" name = "lastname" [(ngModel)]="patient.lastName" required #lastName="ngModel">
+
+                    <p class="error"*ngIf="lastName.invalid && (lastName.touched || patientForm.submitted)">
+                        Le nom est obligatoire.
+                    </p>
                 </div>
                 <div class = "firstname_container">
                     <label for ="firstname"> Prénom* : </label>
                     <hr id ="firstname_hr" aria-hidden="true">
-                    <input type = "text" id="firstname" name = "firstname" [(ngModel)]="patient.firstName" required>
+                    <input type = "text" id="firstname" name = "firstname" [(ngModel)]="patient.firstName" required #firstName="ngModel">
+                    <p class="error"*ngIf="firstName.invalid && (firstName.touched || patientForm.submitted)">
+                        Le prénom est obligatoire.
+                    </p>
                 </div>
             </div>
             <div class="birthday_gender">
                 <div class = "birthday_box">
                     <label for ="birthday"> Date de naissance* : </label>
                     <hr id ="birthday_hr" aria-hidden="true">
-                <input type = "date" id="birthday" name = "birthday" [(ngModel)]="patient.birthday" required > 
-                {{ patient.birthday | date : 'dd/MM/yyyy' }}
+                <input type = "date" id="birthday" name = "birthday" [(ngModel)]="patient.birthday" required #birthday="ngModel"> 
+                <p class="error"*ngIf="birthday.invalid && (birthday.touched || patientForm.submitted)">
+                        La date de naissance est obligatoire.
+                    </p>
                 </div>
                 <div class = "gender_box">
                     <legend>Gender:</legend>
@@ -29,7 +38,7 @@
                                 type="radio"
                                 name="genderTest"
                                 [(ngModel)]="patient.gender"
-                                [value]="'M'">
+                                [value]="'M'" required #gender="ngModel">
                                 M
                             </label>
 
@@ -40,45 +49,74 @@
                                 [(ngModel)]="patient.gender"
                                 [value]="'F'">
                                 F
-                            </label>    
+                            </label>   
+                            <p class="error"*ngIf="gender.invalid && (gender.touched || patientForm.submitted)">
+                                Le genre est obligatoire.
+                            </p> 
                     </div>
                 </div>
             </div>
+            
             <label for ="adress"> Adresse : </label>
             <hr id ="adress_hr" aria-hidden="true">
-            <input type = "text" id="adress" name = "adress" [(ngModel)]="patient.address" required>
-
-            <div class = "adress_container">
-                <div class = "zip_container">
-                    <label for ="zip"> Code postal : </label>
-                    <hr id ="zip_hr" aria-hidden="true">
-                    <input type = "text" id="zip" name = "zip" [(ngModel)]="patient.zip" required>
-                </div>
-                <div class = "town_container">
-                    <label for ="town"> Ville : </label>
-                    <hr id ="town_hr" aria-hidden="true">
-                    <input type = "text" id="town" name = "town" [(ngModel)]="patient.town" required>
+            <input type = "text" id="adress" name = "adress" [(ngModel)]="patient.address">
+            <div class ="box">
+                <div class = "adress_container">
+                    <div class = "zip_container">
+                        <label for ="zip"> Code postal : </label>
+                        <hr id ="zip_hr" aria-hidden="true">
+                        <input type = "text" id="zip" name = "zip" [(ngModel)]="patient.zip">
+                    </div>
+                    <div class = "town_container">
+                        <label for ="town"> Ville : </label>
+                        <hr id ="town_hr" aria-hidden="true">
+                        <input type = "text" id="town" name = "town" [(ngModel)]="patient.town">
+                    </div>
                 </div>
             </div>
-
-            <label for ="phonenumber"> Numéro de téléphone : </label>
-            <hr id ="phonenumber_hr" aria-hidden="true">
-            <input type = "text" id="phonenumber" name = "phonenumber" [(ngModel)]="patient.phoneNumber" required>
-
-            <label for="email"> Email* :</label>
-            <hr id ="email_hr" aria-hidden="true">
-            <input type = "text" id ="email" name = "email" [(ngModel)]="patient.email" required>
+            <div class="phonenumber">
+                <label for ="phonenumber"> Numéro de téléphone : </label>
+                <hr id ="phonenumber_hr" aria-hidden="true">
+                <input type = "text" id="phonenumber" name = "phonenumber" [(ngModel)]="patient.phoneNumber">
+            </div>
+            <div class="email_password">
+                <div class="email">
+                    <label for="email"> Email* :</label>
+                    <hr id ="email_hr" aria-hidden="true">
+                    <input type = "text" id ="email" name = "email" [(ngModel)]="patient.email" required #email="ngModel">
+                    <p class="error"*ngIf="email.invalid && (email.touched || patientForm.submitted)">
+                        L'email est obligatoire.
+                    </p>
+                </div>
+                <div class="password">
+                    <label for ="password"> Mot de passe* : </label>
+                    <hr id ="password_hr" aria-hidden="true">
+                    <input type = "text" id="password" name = "password" [(ngModel)]="patient.password" required #password="ngModel">
+                    <p class="error"*ngIf="password.invalid && (password.touched || patientForm.submitted)" >
+                        Le mot de passe est obligatoire.
+                    </p>
+                </div>
+            </div>
             
-            <label for ="password"> Mot de passe* : </label>
-            <hr id ="password_hr" aria-hidden="true">
-            <input type = "text" id="password" name = "password" [(ngModel)]="patient.password" required>
 
             
         </div>
         <div class = button_container>
-            <button id="sign_in"> se connecter</button>
-            <button id="sign_up" type="submit" [disabled]="patientForm.invalid">s'inscrire </button>
+            <button id="sign_up" type="submit" >s'inscrire </button>
+            <a href="signIn"> Déjà un compte ? </a>
         </div>
     </form>
+    
+</div>
+
+<!-- MODALE -->
+<div class="modal-backdrop" *ngIf="showDeleteModal">
+    <div class="modal">
+        <h3>Utilisateur ajouté !</h3>
+
+        <div class="modal-btns">
+            <button class="confirm" (click)="confirmDelete()">d'accord</button>
+        </div>
+    </div>
 </div>
 
