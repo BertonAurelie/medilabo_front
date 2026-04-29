@@ -10,7 +10,6 @@ import { PatientDtoPost } from '../../interface/patientDtoPost';
 export class DataService {
   constructor(private http:HttpClient){}
   private url = "http://localhost:8080/patient";
-
   private url2 = "./data/data.json"
 
   getPatientList(): Observable<Patient[]>{
@@ -38,12 +37,11 @@ export class DataService {
   }
 
   addPatient(patient: PatientDtoPost): Observable<Patient> {
-  return this.http.post<Patient>(`${this.url}/add`, patient, { withCredentials: true }).pipe(
-    catchError(err => {
-      console.log('handling add error', err);
-      return throwError(() => err);
-    })
-  );
-}
-
+    return this.http.post<Patient>(`${this.url}/add`, patient, { withCredentials: true }).pipe(
+      catchError(err => {
+        console.log('handling add error', err);
+        return throwError(() => err);
+      })
+    );
+  }
 }

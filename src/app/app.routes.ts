@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { SignUp } from './sign-up/sign-up'
 import { HomePage } from './home-page/home-page';
@@ -13,5 +12,5 @@ export const routes: Routes = [
     {path:'patientsList', component: PatientList},
     {path:'patient/:id', component: PatientPage},
     
-    { path: '', component: HomePage, pathMatch: 'full'},
+    { path: '', component: HomePage, pathMatch: 'full'}
 ];

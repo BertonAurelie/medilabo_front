@@ -8,7 +8,13 @@
         </div>
     </div>
     <nav id="sign">
-        <a routerLink="/signUp">S'inscrire</a>
-        <a routerLink="/login">Se connecter</a>
+        <ng-container *ngIf="(auth.isLoggedIn$ | async); else loggedOut">
+            <a href="#" (click)="logout($event)">Se déconnecter</a>
+        </ng-container>
+
+        <ng-template #loggedOut>
+            <a routerLink="/signUp">S'inscrire</a>
+            <a routerLink="/login">Se connecter</a>
+        </ng-template>
     </nav>
 </header>

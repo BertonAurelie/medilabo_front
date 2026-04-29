@@ -1,11 +1,10 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { DataService } from '../service/data-service/data-service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Patient } from '../interface/patient.data';
 import { Router } from '@angular/router';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ReportService } from '../service/report-service/report-service';
-
 
 @Component({
   standalone: true,

@@ -123,16 +123,12 @@ $border: 5px solid $greybackground;
                             text-align: center;
                         }
                 }
-                
             }
 
             .box2 {
-               // background-color: rgb(96, 82, 141);
                 border-radius:25px;
                 width:67%;
-                //border:1px solid $greyborder;
                 padding:0 20px;
-                //background-color: rgba(166, 219, 219, 0.47);
                 align-items: center;
                 justify-content: center;
                 min-width: 0;            
@@ -143,7 +139,6 @@ $border: 5px solid $greybackground;
                 .report{
                     font-size: 20px;
                     padding-bottom: 10px;
-                    //border-bottom: 1px solid black;
                     
                     .report_date{
                         font-size: 18px;
@@ -160,17 +155,15 @@ $border: 5px solid $greybackground;
                     }
                 }
 
-                
-
                 hr{
                     width: 80%;
                     margin: 1rem auto;     
                     border: none;          
                     border-top: 1px solid $greyborder; 
-
                 }
             }
         }
+
         form{
             width:99%;
             height:30%;
@@ -180,7 +173,6 @@ $border: 5px solid $greybackground;
                 display:flex;
                 width:100%;
                 height:100%;
-                //background-color: rgb(108, 94, 94);
                 border-radius: 25px;
                 border:1px solid $greyborder;
                 padding-left:20px;

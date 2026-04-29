@@ -1,8 +1,9 @@
 <div class = "sign-up_container">
+    <h1>Enregistrer un patient :</h1>
   <form #patientForm="ngForm" (ngSubmit)="onSubmit(patientForm)">
         <div class = "input_container">
             <div class="box">
-                <div class = "lastname_container">
+                <div class = "name_container">
                     <label for ="lastname"> Nom* : </label>
                     <hr id ="lastname_hr" aria-hidden="true">
                     <input type = "text" id="lastname" name = "lastname" [(ngModel)]="patient.lastName" required #lastName="ngModel">
@@ -11,7 +12,7 @@
                         Le nom est obligatoire.
                     </p>
                 </div>
-                <div class = "firstname_container">
+                <div class = "name_container">
                     <label for ="firstname"> Prénom* : </label>
                     <hr id ="firstname_hr" aria-hidden="true">
                     <input type = "text" id="firstname" name = "firstname" [(ngModel)]="patient.firstName" required #firstName="ngModel">
@@ -96,14 +97,10 @@
                         Le mot de passe est obligatoire.
                     </p>
                 </div>
-            </div>
-            
-
-            
+            </div>       
         </div>
         <div class = button_container>
-            <button id="sign_up" type="submit" >s'inscrire </button>
-            <a href="signIn"> Déjà un compte ? </a>
+            <button id="sign_up" type="submit" >Enregistrer </button>
         </div>
     </form>
     

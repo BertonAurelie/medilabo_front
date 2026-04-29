@@ -1,4 +1,3 @@
-import { DatePipe } from "@angular/common";
 
 export interface Reportt {
     patient:number;

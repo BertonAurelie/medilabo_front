@@ -1,4 +1,4 @@
-import { Component,inject,Input,OnInit } from '@angular/core';
+import { Component,inject,Input } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DataService } from '../service/data-service/data-service';
 import { Patient } from '../interface/patient.data';
@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { AsyncPipe, DatePipe, NgClass } from '@angular/common';
 import { ReportService } from '../service/report-service/report-service';
 import { Reportt } from '../interface/report.data';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
