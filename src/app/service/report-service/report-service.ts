@@ -9,8 +9,8 @@ import { Reportt } from '../../interface/report.data';
 
 export class ReportService {
   constructor(private http:HttpClient){}
-  private url="http://localhost:8080/report";
-  private url2 = "http://localhost:8080/diabetes"
+  private url="/api/report";
+  private url2 = "/api/diabetes"
 
   getReport(patient: number): Observable<Reportt[]> {
     return this.http.get<Reportt[]>(`${this.url}/${patient}`, {

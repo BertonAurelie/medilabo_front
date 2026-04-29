@@ -9,7 +9,7 @@ import { PatientDtoPost } from '../../interface/patientDtoPost';
 })
 export class DataService {
   constructor(private http:HttpClient){}
-  private url = "http://localhost:8080/patient";
+  private url = "/api/patient";
   private url2 = "./data/data.json"
 
   getPatientList(): Observable<Patient[]>{
