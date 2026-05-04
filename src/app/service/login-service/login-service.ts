@@ -9,7 +9,7 @@ export class LoginService {
   private loggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.loggedInSubject.asObservable();
 
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = '/api';
 
   constructor(private http: HttpClient) {}
 
